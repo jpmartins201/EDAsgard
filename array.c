@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 struct Rectangle{
     int length;
     int breadth;
@@ -17,10 +19,12 @@ int main() {
     int i;
     int a = 10; // data variable
     int *p; //adress variable
-    p = &a; 
-    printf("%d\n", a);
-    printf("%s\n", p);
-    printf("%d\n", *p);
+    malloc(5* sizeof(int));
+    p = (int *)malloc(5* sizeof(int));  // p = new int[5]; --> C++
+    // p = &a; 
+    // printf("%d\n", a);
+    // printf("%s\n", p);
+    // printf("%d\n", *p);
 
 
     // struct Card c = {1, 0, 0};
