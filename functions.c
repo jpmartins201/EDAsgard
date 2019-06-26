@@ -26,6 +26,11 @@ void swap2(int *x, int *y){ // passagem por endereço
     *y = temp; // x= 20, y = 10, temp = 10;
 }
 
+int * fun(int n) {
+    int *p;
+    p = (int *)malloc(n*sizeof(int));
+    return p;
+}
 
 int main()
 {
@@ -42,5 +47,9 @@ int main()
     swap(a, b);
     printf("1 - %d %d\n", a, b); 
     swap2(&a, &b);
-    printf("2 - %d %d\n", a, b); 
+    printf("2 - %d %d\n", a, b);
+
+    int *A;
+    A = fun(5);
+    printf("%p", A);
 }
