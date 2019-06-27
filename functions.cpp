@@ -26,6 +26,16 @@ void swap3(int &x, int &y){ // passagem por referência
     y = temp; // x= 20, y = 10, temp = 10;
 }
 
+struct Rectangle {
+    int length;
+    int breadth;
+};
+
+int area(struct Rectangle &r1){ //pass by reference, creating an ALIAS for r (that from main)
+    return r1.length * r1.breadth;
+}
+
+
 
 int main()
 {
@@ -38,4 +48,8 @@ int main()
     printf("Por endereço - %d %d\n", a, b); 
     swap3(a, b);
     printf("Por referência - %d, %d\n", a, b);
+
+    struct Rectangle r={10,5};
+
+    printf("%d", area(r));
 }

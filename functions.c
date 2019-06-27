@@ -32,6 +32,15 @@ int * fun(int n) {
     return p;
 }
 
+struct Rectangle {
+    int length;
+    int breadth;
+};
+
+int area(struct Rectangle r1){ //a DIFFERENT Rectangle "object" with the same values (passing by VALUE)
+    return r1.length * r1.breadth;
+}
+
 int main()
 {
     int x,y,z;
@@ -52,4 +61,7 @@ int main()
     int *A;
     A = fun(5);
     printf("%p", A);
+
+    struct Rectangle r={10,5}; //Rectangle "object" with 10 and 5
+    printf("%d", area(r));
 }
