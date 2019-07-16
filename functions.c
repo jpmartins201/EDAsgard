@@ -37,8 +37,24 @@ struct Rectangle {
     int breadth;
 };
 
+struct Test {
+    int A[5];
+    int n;
+};
+
 int area(struct Rectangle r1){ //a DIFFERENT Rectangle "object" with the same values (passing by VALUE)
     return r1.length * r1.breadth;
+}
+
+void changeLenght(struct Rectangle *p, int l) {
+    p->length = l;
+}
+
+void funct(struct Test t1){ 
+    // it creates a "copy" of the content of the struct, and all changes made here will remain here (not affecting
+    //the struct content in main(). The array inside the struct its passed by value (although an array must always be passed by reference);
+    t1.A[0] = 10;
+    t1.A[1] = 9;
 }
 
 int main()
@@ -60,8 +76,15 @@ int main()
 
     int *A;
     A = fun(5);
-    printf("%p", A);
+    printf("Endereço %p\n", A);
 
     struct Rectangle r={10,5}; //Rectangle "object" with 10 and 5
-    printf("%d", area(r));
+
+    changeLenght(&r, 20);
+    
+    printf("%d\n", area(r));
+
+    struct Test t = {{2,4,5,8,10}, 5};
+
+    funct(t);
 }

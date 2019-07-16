@@ -35,7 +35,9 @@ int area(struct Rectangle &r1){ //pass by reference, creating an ALIAS for r (th
     return r1.length * r1.breadth;
 }
 
-
+void changeLenght(struct Rectangle *p, int l) {
+    p->length = l;
+}
 
 int main()
 {
@@ -50,6 +52,7 @@ int main()
     printf("Por referência - %d, %d\n", a, b);
 
     struct Rectangle r={10,5};
+    changeLenght(&r, 20);
 
     printf("%d", area(r));
 }
